@@ -8,7 +8,7 @@
 
 ## 环境安装
 ### Python版本
-Python 3.8 Windows环境
+Python 3.7.9 Windows环境
 
 ### 安装相关的依赖包
 ```shell
