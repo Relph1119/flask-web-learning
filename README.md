@@ -19,3 +19,8 @@ pip install -r requirements.txt
 ```shell
 docsify serve ./docs
 ```
+
+## 注意事项
+
+1. 运行ch07下的sayhello，需要先设置`ch07`为`Sources Root`，这样代码就不会报导入包的错误
+2. 
