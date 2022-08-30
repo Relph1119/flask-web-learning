@@ -4,7 +4,7 @@
 @file: app.py
 @time: 2022/8/30 13:48
 @project: flask-web-learning
-@desc:
+@desc: 表单操作
 """
 import os
 import uuid
