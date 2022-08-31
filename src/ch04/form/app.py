@@ -42,7 +42,6 @@ app.config['ALLOWED_EXTENSIONS'] = ['png', 'jpg', 'jpeg', 'gif']
 # Flask-CKEditor config
 # 使用设置的本地资源
 app.config['CKEDITOR_SERVE_LOCAL'] = True
-#
 app.config['CKEDITOR_FILE_UPLOADER'] = 'upload_for_ckeditor'
 
 # Flask-Dropzone config
