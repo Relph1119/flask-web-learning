@@ -214,3 +214,7 @@ fabric.properties
 .idea
 /src/ch07/data.db
 /src/ch08/data-dev.db
+/src/ch09/data-dev.db
+/src/ch09/whooshee/
+/src/ch09/uploads/*.jpg
+/src/ch09/uploads/avatars/*.png
