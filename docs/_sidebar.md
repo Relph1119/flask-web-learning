@@ -8,3 +8,4 @@
   * [第8章 个人博客](contents/ch08.md)
   * [第9章 图片社交网站](contents/ch09.md)
   * [第10章 待办事项程序](contents/ch10.md)
+  * [第11章 在线聊天室](contents/ch11.md)

@@ -219,3 +219,4 @@ fabric.properties
 /src/ch09/uploads/*.jpg
 /src/ch09/uploads/avatars/*.png
 /src/ch10/data.db
+/src/ch11/data.db
