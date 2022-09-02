@@ -25,3 +25,4 @@ docsify serve ./docs
 1. 运行`ch07`下的`sayhello`，需要先设置`ch07`文件夹为`Sources Root`，避免代码导包的报错
 2. 运行`ch08`下的`bluelog`，需要先设置`ch08`文件夹为`Sources Root`，避免代码导包的报错
 3. 运行`ch09`下的`albumy`，需要先设置`ch09`文件夹为`Sources Root`，避免代码导包的报错
+4. 运行`ch10`下的`todoism`，需要先设置`ch10`文件夹为`Sources Root`，避免代码导包的报错

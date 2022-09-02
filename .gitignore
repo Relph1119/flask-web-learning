@@ -218,3 +218,4 @@ fabric.properties
 /src/ch09/whooshee/
 /src/ch09/uploads/*.jpg
 /src/ch09/uploads/avatars/*.png
+/src/ch10/data.db
