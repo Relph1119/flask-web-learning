@@ -51,6 +51,7 @@ def create_app(config_name=None):
     return app
 
 
+# 文件日志处理
 def register_logging(app):
     class RequestFormatter(logging.Formatter):
 
@@ -59,6 +60,7 @@ def register_logging(app):
             record.remote_addr = request.remote_addr
             return super(RequestFormatter, self).format(record)
 
+    # 设置日志的输出格式
     request_formatter = RequestFormatter(
         '[%(asctime)s] %(remote_addr)s requested %(url)s\n'
         '%(levelname)s in %(module)s: %(message)s'
@@ -66,9 +68,13 @@ def register_logging(app):
 
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
+    # 创建一个轮转文件类型的日志处理器
+    # 当日志文件的大小超过maxBytes，会循环覆盖之前的记录
+    # 同时创建10个日志文件，当10个文件全部存满后，才开始覆盖之前的文件
     file_handler = RotatingFileHandler(os.path.join(basedir, 'logs/bluelog.log'),
                                        maxBytes=10 * 1024 * 1024, backupCount=10)
     file_handler.setFormatter(formatter)
+    # 设置日志等级为INFO
     file_handler.setLevel(logging.INFO)
 
     mail_handler = SMTPHandler(
