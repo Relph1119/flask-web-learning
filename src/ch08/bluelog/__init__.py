@@ -231,9 +231,12 @@ def register_commands(app):
 
 
 def register_request_handlers(app):
+    # 分析查询记录，找出慢查询
     @app.after_request
     def query_profiler(response):
+        # 遍历所有查询记录信息
         for q in get_debug_queries():
+            # 超出配置的阈值，都被认为是慢查询
             if q.duration >= app.config['BLUELOG_SLOW_QUERY_THRESHOLD']:
                 app.logger.warning(
                     'Slow query: Duration: %fs\n Context: %s\nQuery: %s\n '

@@ -53,6 +53,7 @@ class BaseConfig(object):
     # ('theme name', 'display name')
     # 设置主题
     BLUELOG_THEMES = {'perfect_blue': 'Perfect Blue', 'black_swan': 'Black Swan'}
+    # 查询执行时长
     BLUELOG_SLOW_QUERY_THRESHOLD = 1
 
     BLUELOG_UPLOAD_PATH = os.path.join(basedir, 'uploads')
