@@ -9,3 +9,4 @@
   * [第9章 图片社交网站](contents/ch09.md)
   * [第10章 待办事项程序](contents/ch10.md)
   * [第11章 在线聊天室](contents/ch11.md)
+  * [第12章 自动化测试](contents/ch12.md)

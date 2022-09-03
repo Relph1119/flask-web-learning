@@ -17,11 +17,14 @@ class APITestCase(unittest.TestCase):
 
     def setUp(self):
         app = create_app('testing')
+        # 创建上下文对象
         self.app_context = app.test_request_context()
+        # 显示推送上下文
         self.app_context.push()
         db.create_all()
         self.client = app.test_client()
 
+        # 创建用于测试的用户记录
         user = User(username='grey')
         user.set_password('123')
         item = Item(body='Test Item', author=user)
@@ -36,8 +39,10 @@ class APITestCase(unittest.TestCase):
 
     def tearDown(self):
         db.drop_all()
+        # 销毁上下文
         self.app_context.pop()
 
+    # 获取认证令牌
     def get_oauth_token(self):
         response = self.client.post(url_for('api_v1.token'), data=dict(
             grant_type='password',
@@ -47,6 +52,7 @@ class APITestCase(unittest.TestCase):
         data = response.get_json()
         return data['access_token']
 
+    # 设置认证首部
     def set_auth_headers(self, token):
         return {
             'Authorization': 'Bearer ' + token,
@@ -54,11 +60,13 @@ class APITestCase(unittest.TestCase):
             'Content-Type': 'application/json'
         }
 
+    # 测试API首页
     def test_api_index(self):
         response = self.client.get(url_for('api_v1.index'))
         data = response.get_json()
         self.assertEqual(data['api_version'], '1.0')
 
+    # 测试获取认证令牌
     def test_get_token(self):
         response = self.client.post(url_for('api_v1.token'), data=dict(
             grant_type='password',
@@ -69,7 +77,10 @@ class APITestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('access_token', data)
 
+
+    # 测试获取用户资源
     def test_get_user(self):
+        # 获取认证令牌
         token = self.get_oauth_token()
         response = self.client.get(url_for('api_v1.user'),
                                    headers=self.set_auth_headers(token))
@@ -77,6 +88,7 @@ class APITestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(data['username'], 'grey')
 
+    # 测试添加新条目
     def test_new_item(self):
         token = self.get_oauth_token()
         response = self.client.post(url_for('api_v1.items'),

@@ -33,6 +33,7 @@ class BaseTestCase(unittest.TestCase):
         db.drop_all()
         self.context.pop()
 
+    # 登录管理员用户
     def login(self, username=None, password=None):
         if username is None and password is None:
             username = 'grey'
@@ -43,5 +44,6 @@ class BaseTestCase(unittest.TestCase):
             password=password
         ), follow_redirects=True)
 
+    # 注销管理员用户
     def logout(self):
         return self.client.get(url_for('auth.logout'), follow_redirects=True)
