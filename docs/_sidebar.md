@@ -12,3 +12,4 @@
   * [第12章 自动化测试](contents/ch12.md)
   * [第13章 性能优化](contents/ch13.md)
   * [第14章 部署上线](contents/ch14.md)
+  * [第16章 Flask工作原理与机制解析](contents/ch16.md)
